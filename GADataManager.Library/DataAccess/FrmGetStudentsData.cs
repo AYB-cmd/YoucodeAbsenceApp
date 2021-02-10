@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace GADataManager.Library.DataAccess
 {
-    public class UserData
+    public class FrmGetStudentsData
     {
-        public List<UserModel> GetUserById(string Id)
+        public List<FrmGetStudentsModel> GetUserById(string id)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            var p = new { Id = Id };
+            var p = new { User_Id = id};
 
-            var output = sql.LoadData<UserModel, dynamic>("dbo.supUserLookup",p, "DataTest");
+            var output = sql.LoadData<FrmGetStudentsModel, dynamic>("spFrmGetStudents", p, "DataTest");
 
             return output;
 

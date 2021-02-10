@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace GADataManager.Library.DataAccess
 {
-    public class UserData
+    public class StudentAbsenceSingleData
     {
-        public List<UserModel> GetUserById(string Id)
+        public List<StudentAbsenceSingleModel> Get(string Id)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
             var p = new { Id = Id };
 
-            var output = sql.LoadData<UserModel, dynamic>("dbo.supUserLookup",p, "DataTest");
+            var output = sql.LoadData<StudentAbsenceSingleModel, dynamic>("dbo.spStudent_GetAbsenceSingle", p, "DataTest");
 
             return output;
-
         }
     }
 }
